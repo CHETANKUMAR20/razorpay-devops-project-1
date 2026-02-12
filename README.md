@@ -14,3 +14,34 @@ The objective of this project is to:
 - Replace containers automatically on every push
 
 This simulates a real-world DevOps workflow used in modern engineering teams.
+=======================================================================================
+---
+
+## 🐳 Step 1: Local Docker Build & Testing
+
+Before implementing CI/CD, the application was first containerized and tested locally.
+
+### 🔹 Dockerfile Used
+
+```dockerfile
+FROM nginx:alpine
+COPY app/ /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+---------------------------------------------------------------------------------------
+
+🔹 Build Docker Image
+docker build -t razorpay-devops-project-1:v1 .
+
+🔹 Run Container Locally
+docker run -d -p 8080:80 razorpay-devops-project-1:v1
+
+
+The application was successfully accessible at:
+
+http://localhost:8080
+
+📸 Local Docker Build Output
+
+
+
