@@ -140,5 +140,67 @@ Server ready for container deployment
 
 
 ---------------------------------------------------------------------------------------
+---
+
+## 🚀 Step 4: Manual Deployment on EC2
+
+Before automating deployment, a manual deployment script was created and tested on the EC2 instance.
+
+This ensures the deployment logic works correctly before integrating CI/CD.
+
+---
+
+### 🔹 Deployment Script (deploy.sh)
+
+```bash
+#!/bin/bash
+
+CONTAINER_NAME=razorpay-devops-container
+IMAGE_NAME=chetan70/razorpay-devops-project-1:latest
+
+echo "Pulling latest image..."
+docker pull $IMAGE_NAME
+
+echo "Stopping old container..."
+docker stop $CONTAINER_NAME || true
+docker rm $CONTAINER_NAME || true
+
+echo "Running new container..."
+docker run -d \
+  --name $CONTAINER_NAME \
+  -p 80:80 \
+  --restart unless-stopped \
+  $IMAGE_NAME
+
+echo "Deployment completed."
+
 ---------------------------------------------------------------------------------------
+🔹 Make Script Executable
+chmod +x deploy.sh
+
+🔹 Execute Deployment Script
+./deploy.sh
+
+📸 Deployment Output in EC2
+
+📸 Running Container Verification
+docker ps
+
+
+🌐 Application Accessed via Public IP
+
+The application was successfully accessed using:
+
+http://<EC2_PUBLIC_IP>
+
+✅ Outcome
+
+Latest Docker image pulled from Docker Hub
+
+Old container stopped and removed safely
+
+New container deployed with restart policy
+
+Application live on cloud server
+
 ---------------------------------------------------------------------------------------
