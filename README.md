@@ -43,5 +43,40 @@ http://localhost:8080
 
 📸 Local Docker Build Output
 
+---------------------------------------------------------------------------------------
 
 
+## 🐳 Step 2: Docker Hub Integration
+
+After validating the application locally, the Docker image was pushed to Docker Hub for remote access and cloud deployment.
+
+---
+
+### 🔹 Login to Docker Hub
+
+```bash
+docker login
+---------------------------------------------------------------------------------------
+🔹 Tag Docker Image
+docker tag razorpay-devops-project-1:v1 chetan70/razorpay-devops-project-1:v1
+
+🔹 Push Image to Docker Hub
+docker push chetan70/razorpay-devops-project-1:v1
+
+
+Image was successfully pushed to:
+
+docker.io/chetan70/razorpay-devops-project-1
+
+📸 Docker Push Output
+
+📸 Docker Hub Repository
+
+✅ Outcome
+
+Image successfully versioned
+
+Public registry configured
+
+Ready for cloud-based deployment
+---------------------------------------------------------------------------------------
