@@ -323,4 +323,88 @@ Secure credential handling
 
 Production-style container lifecycle management
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+---
+
+## 🏗 Final System Architecture
+
+Below is the overall deployment workflow implemented in this project:
+
+
+---------------------------------------------------------------------------------------
+Developer
+↓
+GitHub Repository
+↓
+GitHub Actions (CI)
+↓
+Docker Build
+↓
+Push to Docker Hub
+↓
+Secure SSH to EC2
+↓
+Execute deploy.sh
+↓
+Stop Old Container
+↓
+Run New Container
+↓
+Application Live
+---------------------------------------------------------------------------------------
+
+---
+
+## 📸 Architecture Overview
+
+![Architecture Diagram](docs/architecture-diagram.png)
+
+---
+
+## 📈 Skills Demonstrated
+
+This project demonstrates practical understanding of:
+
+- Docker containerization
+- Image tagging and registry workflow
+- CI/CD automation using GitHub Actions
+- Secure secret management
+- AWS EC2 provisioning
+- Linux server management
+- Bash scripting for deployments
+- Container lifecycle handling
+- Restart policies for production reliability
+
+---
+
+## 🔐 DevOps Best Practices Applied
+
+- No hardcoded credentials
+- All secrets stored securely in GitHub Secrets
+- Automated deployment
+- Clean container replacement strategy
+- Lightweight production Docker image
+- Clear project structure and documentation
+
+---
+
+## 🎯 Project Impact
+
+This project simulates a real-world production deployment workflow.
+
+It reflects:
+
+- Infrastructure understanding
+- Automation mindset
+- Cloud deployment capability
+- Production-level thinking
+
+---
+
+## 👨‍💻 Author
+
+Chetan Kumar  
+DevOps Learning Plan 2026  
+Focused on Production-Grade Engineering
+
+---------------------------------------------------------------------------------------
