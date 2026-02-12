@@ -204,3 +204,123 @@ New container deployed with restart policy
 Application live on cloud server
 
 ---------------------------------------------------------------------------------------
+---
+
+## 🔁 Step 5: CI/CD Automation with GitHub Actions
+
+To eliminate manual deployment, a GitHub Actions workflow was implemented.
+
+The pipeline automatically:
+
+- Builds Docker image
+- Pushes image to Docker Hub
+- Connects to EC2 via SSH
+- Executes deployment script
+- Replaces running container
+
+---
+
+## 🔹 Workflow Trigger
+
+Pipeline runs automatically on:
+
+---------------------------------------------------------------------------------------
+Push to main branch
+
+
+---
+
+## 🔹 GitHub Secrets Configured
+
+The following secrets were securely configured:
+
+- DOCKER_USERNAME
+- DOCKER_PASSWORD
+- EC2_HOST
+- EC2_USER
+- EC2_SSH_KEY
+
+All sensitive data is stored securely using GitHub Secrets.
+
+---
+
+## 🔹 GitHub Actions Workflow File
+
+File location:
+
+
+---------------------------------------------------------------------------------------
+
+---
+
+### 🔹 Workflow Definition
+
+```yaml
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build Docker Image
+        run: docker build -t chetan70/razorpay-devops-project-1:latest .
+
+      - name: Push Docker Image
+        run: docker push chetan70/razorpay-devops-project-1:latest
+
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            ./deploy.sh
+
+---------------------------------------------------------------------------------------
+📸 GitHub Actions Successful Run
+
+📸 Deployment Triggered Automatically
+
+✅ Final Deployment Flow
+
+Git Push
+   ↓
+GitHub Actions Triggered
+   ↓
+Build Image
+   ↓
+Push Image
+   ↓
+SSH to EC2
+   ↓
+Execute deploy.sh
+   ↓
+Application Updated Automatically
+
+🎯 Outcome
+
+Fully automated CI/CD pipeline
+
+Zero manual deployment required
+
+Secure credential handling
+
+Production-style container lifecycle management
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
