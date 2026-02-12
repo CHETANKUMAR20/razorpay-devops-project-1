@@ -1,5 +1,7 @@
 # 🚀 Razorpay DevOps Project-1
+
 [![Build and Push Docker Image](https://github.com/CHETANKUMAR20/razorpay-devops-project-1/actions/workflows/deploy.yaml/badge.svg?branch=main)](https://github.com/CHETANKUMAR20/razorpay-devops-project-1/actions/workflows/deploy.yaml)
+
 ## 📌 Introduction
 
 This project demonstrates a production-style CI/CD pipeline for a Dockerized web application deployed on AWS EC2.
