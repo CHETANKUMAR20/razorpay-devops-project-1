@@ -80,3 +80,65 @@ Public registry configured
 
 Ready for cloud-based deployment
 ---------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------
+
+---
+
+## ☁️ Step 3: AWS EC2 Setup & Docker Installation
+
+To simulate a production environment, an AWS EC2 instance was launched and configured manually.
+
+---
+
+### 🔹 EC2 Configuration
+
+- Instance Type: t2.micro
+- OS: Ubuntu 22.04 LTS
+- Storage: 8GB
+- Inbound Rules:
+  - Port 22 (SSH)
+  - Port 80 (HTTP)
+
+---
+
+### 📸 EC2 Instance Running
+
+![EC2 Instance](docs/ec2-instance-running.png)
+
+---
+
+### 🔹 Connect to EC2
+
+```bash
+ssh -i your-key.pem ubuntu@<EC2_PUBLIC_IP>
+
+📸 SSH Connection Established
+
+
+---------------------------------------------------------------------------------------
+🔹 Update System Packages
+sudo apt update -y
+
+📸 System Update Output
+
+🔹 Install Docker on EC2
+sudo apt install docker.io -y
+sudo systemctl start docker
+sudo systemctl enable docker
+
+📸 Docker Version on EC2
+
+
+✅ Outcome
+
+Cloud server provisioned
+
+Docker installed and running
+
+Server ready for container deployment
+
+
+---------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
