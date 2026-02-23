@@ -16,6 +16,9 @@ The objective of this project is to:
 - Replace containers automatically on every push
 
 This simulates a real-world DevOps workflow used in modern engineering teams.
+
+# 🏗 Architecture
+![Architecture](Diagram(docs/architecture-diagram.png)
 =======================================================================================
 ---
 
@@ -116,7 +119,7 @@ To simulate a production environment, an AWS EC2 instance was launched and confi
 
 ### 📸 EC2 Instance Running
 
-![EC2 Instance](docs/ec2-instance-running.png)
+![EC2 Instance](docs/ec2-instance-running.png) 
 
 ---
 
@@ -428,4 +431,5 @@ It reflects:
 ---
 
 ---------------------------------------------------------------------------------------
+
 
