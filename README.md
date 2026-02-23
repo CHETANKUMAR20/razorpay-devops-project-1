@@ -52,8 +52,10 @@ The application was successfully accessible at:
 http://localhost:8080
 ```
 
-📸 Local Docker Build Output
+📸 Local Docker Build Output. 
+```
 ![docker build output](docs/docker-build.png)
+```
 ---------------------------------------------------------------------------------------
 
 
@@ -431,6 +433,7 @@ It reflects:
 ---
 
 ---------------------------------------------------------------------------------------
+
 
 
 
