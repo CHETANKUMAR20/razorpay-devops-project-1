@@ -18,7 +18,7 @@ The objective of this project is to:
 This simulates a real-world DevOps workflow used in modern engineering teams.
 
 # 🏗 Architecture
-![Architecture](Diagram(docs/architecture-diagram.png)
+![ArchitectureDiagram](docs/architecture-diagram.png)
 =======================================================================================
 ---
 
@@ -431,5 +431,6 @@ It reflects:
 ---
 
 ---------------------------------------------------------------------------------------
+
 
 
