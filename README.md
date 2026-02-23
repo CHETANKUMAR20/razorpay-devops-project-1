@@ -25,23 +25,29 @@ Before implementing CI/CD, the application was first containerized and tested lo
 
 ### 🔹 Dockerfile Used
 
-```dockerfile
+dockerfile
+```
 FROM nginx:alpine
 COPY app/ /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
+```
 ---------------------------------------------------------------------------------------
 
+
 🔹 Build Docker Image
+```
 docker build -t razorpay-devops-project-1:v1 .
-
+```
 🔹 Run Container Locally
+```
 docker run -d -p 8080:80 razorpay-devops-project-1:v1
-
+```
 
 The application was successfully accessible at:
-
+```
 http://localhost:8080
+```
 
 📸 Local Docker Build Output
 
@@ -58,13 +64,16 @@ After validating the application locally, the Docker image was pushed to Docker 
 
 ```bash
 docker login
+```
 ---------------------------------------------------------------------------------------
 🔹 Tag Docker Image
+```
 docker tag razorpay-devops-project-1:v1 chetan70/razorpay-devops-project-1:v1
-
+```
 🔹 Push Image to Docker Hub
+```
 docker push chetan70/razorpay-devops-project-1:v1
-
+```
 
 Image was successfully pushed to:
 
@@ -94,13 +103,14 @@ To simulate a production environment, an AWS EC2 instance was launched and confi
 ---
 
 ### 🔹 EC2 Configuration
-
+```
 - Instance Type: t2.micro
 - OS: Ubuntu 22.04 LTS
 - Storage: 8GB
 - Inbound Rules:
   - Port 22 (SSH)
   - Port 80 (HTTP)
+```
 
 ---
 
@@ -114,20 +124,25 @@ To simulate a production environment, an AWS EC2 instance was launched and confi
 
 ```bash
 ssh -i your-key.pem ubuntu@<EC2_PUBLIC_IP>
+```
 
 📸 SSH Connection Established
 
 
 ---------------------------------------------------------------------------------------
 🔹 Update System Packages
+```
 sudo apt update -y
+```
 
 📸 System Update Output
 
 🔹 Install Docker on EC2
+```
 sudo apt install docker.io -y
 sudo systemctl start docker
 sudo systemctl enable docker
+```
 
 📸 Docker Version on EC2
 
@@ -175,13 +190,17 @@ docker run -d \
   $IMAGE_NAME
 
 echo "Deployment completed."
-
+```
 ---------------------------------------------------------------------------------------
 🔹 Make Script Executable
+```
 chmod +x deploy.sh
+```
 
 🔹 Execute Deployment Script
+```
 ./deploy.sh
+```
 
 📸 Deployment Output in EC2
 
@@ -192,9 +211,9 @@ docker ps
 🌐 Application Accessed via Public IP
 
 The application was successfully accessed using:
-
+```
 http://<EC2_PUBLIC_IP>
-
+```
 ✅ Outcome
 
 Latest Docker image pulled from Docker Hub
@@ -235,13 +254,13 @@ Push to main branch
 ## 🔹 GitHub Secrets Configured
 
 The following secrets were securely configured:
-
+```
 - DOCKER_USERNAME
 - DOCKER_PASSWORD
 - EC2_HOST
 - EC2_USER
 - EC2_SSH_KEY
-
+```
 All sensitive data is stored securely using GitHub Secrets.
 
 ---
@@ -257,7 +276,8 @@ File location:
 
 ### 🔹 Workflow Definition
 
-```yaml
+yaml
+```
 name: Build and Deploy
 
 on:
@@ -293,14 +313,14 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             ./deploy.sh
-
+```
 ---------------------------------------------------------------------------------------
 📸 GitHub Actions Successful Run
 
 📸 Deployment Triggered Automatically
 
 ✅ Final Deployment Flow
-
+```
 Git Push
    ↓
 GitHub Actions Triggered
@@ -314,6 +334,7 @@ SSH to EC2
 Execute deploy.sh
    ↓
 Application Updated Automatically
+```
 
 🎯 Outcome
 
@@ -334,6 +355,7 @@ Below is the overall deployment workflow implemented in this project:
 
 
 ---------------------------------------------------------------------------------------
+```
 Developer
 ↓
 GitHub Repository
@@ -353,6 +375,8 @@ Stop Old Container
 Run New Container
 ↓
 Application Live
+```
+
 ---------------------------------------------------------------------------------------
 
 ---
@@ -403,10 +427,5 @@ It reflects:
 
 ---
 
-## 👨‍💻 Author
-
-Chetan Kumar  
-DevOps Learning Plan 2026  
-Focused on Production-Grade Engineering
-
 ---------------------------------------------------------------------------------------
+
